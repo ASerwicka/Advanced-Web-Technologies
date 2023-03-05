@@ -43,13 +43,13 @@ function av_view_advertisement($content){
     $adv_array = get_option('adv');
     $index = random_int(0, count($adv_array)-1);
     $advertisement = $adv_array[$index];
-    return "<label class=av_marker>$advertisement</label>"."\n".$content;
+    return "<div class=\"adv\">$advertisement</div>"."<div style=\"color:blue;font-size:46px;\">$content</div>";
 }
 
 add_filter("the_content", "av_view_advertisement"); 
 
 function av_register_styles(){
-    wp_register_style('av_styles', plugins_url('css\style.css', __FILE__));
+    wp_register_style('av_styles', plugins_url('\css\style.css', __FILE__));
     wp_enqueue_style('av_styles');
 }
    
