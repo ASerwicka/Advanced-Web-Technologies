@@ -1,0 +1,12 @@
+.av_marker{
+    color: rgb(157, 100, 100);
+    margin-left: 10px;
+    background-color: red;
+    padding: 1px 10px;
+    border-radius: 5px;
+    font-size: 0.5em;
+    font-style: bold; 
+}
+article .av_marker{
+    display: inline;
+}
