@@ -21,7 +21,13 @@ function av_admin_page(){
     $advertisements = array();
 
     if(isset($_POST["submit"])){
-        $advertisements = get_option('adv');
+        if(get_option('adv')==false){
+            add_option('adv',array());
+        }
+        else{
+            $advertisements = get_option('adv');
+        }
+        echo (array_keys($advertisements));
         array_push($advertisements, $_POST['adv']);
         echo '<div class="notice notice-success isdismissible"><p>Settings saved.</p></div>';
         echo count($advertisements);
@@ -32,10 +38,20 @@ function av_admin_page(){
     <div class="wrap">
       <h1>Add new advertisement</h1>
         <form name="av_form" method="post">
-            <input type="text" name="adv" size="100" value="Paste a HTML advertisement here"> 
+            <input type="text" id = 'adv' name="adv" size="100" value="Paste a HTML advertisement here"> 
             <p class="submit"><input type="submit" value="Submit" name="submit"></p>
         </form>
     </div>
+    <div class="wrap">
+      <h1>Browse adversitements</h1>
+      <?php 
+    foreach ($advertisements as $ad) {
+        echo '<table style="border-collapse: collapse; border: 1px solid black; padding: 5px;">';
+        echo '<tr style="background-color: lightgray;"><th style="border: 1px solid black; padding: 5px;">Title</th><td style="border: 1px solid black; padding: 5px;">' . $ad . '</td></tr>';
+    }
+    ?>
+    </div>
+   
 <?php
 } 
 
