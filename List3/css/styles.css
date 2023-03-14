@@ -1,0 +1,125 @@
+nav ul {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+nav li {
+  float: left;
+}
+nav li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav li a:hover:not(.active) {
+  background-color: #ddd;
+}
+nav li a.active {
+  color: white;
+  background-color: #04AA6D;
+}
+
+.happy_hedgehogs_prompt {
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 25px;
+  color: rgb(74, 199, 74);
+  background-color: #bfebbf;
+}
+
+.sad_hedgehogs_prompt {
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 25px;
+  color: red;
+  background-color: #ff9999;
+}
+
+.supportive_hedgehogs_prompt {
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 25px;
+  color: orange;
+  background-color: #ffdb99;
+}
+
+.centered {
+  margin: auto;
+  width: 75%;
+  text-align: center;
+}
+
+.row {
+  margin-left: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 32%;
+  max-width: 32%;
+  padding: 0 4px;
+}
+.column img {
+  border-radius: 15px 50px 30px;
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 40%;
+    max-width: 40%;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.button-positive, .button-negative, .button-primary {
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.button-primary {
+  background-color: rgb(0, 81, 255);
+}
+
+.button-negative {
+  background-color: red;
+}
+
+.button-positive {
+  background-color: rgb(74, 199, 74);
+}
+
+/*# sourceMappingURL=styles.css.map */

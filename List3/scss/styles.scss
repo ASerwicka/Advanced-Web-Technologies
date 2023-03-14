@@ -1,0 +1,119 @@
+
+nav{
+    ul {
+        display: block;
+        text-align: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #e7e7e7;
+        background-color: #f3f3f3;
+    }
+    
+    li {
+        float: left;
+        a {
+            display: block;
+            color: #666;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        a:hover:not(.active) {
+            background-color: #ddd;
+        }
+        a.active {
+            color: white;
+            background-color: #04AA6D;
+        }
+    }
+}
+
+$positive-color: rgb(74, 199, 74);
+$negaitve-color:red;
+$primary-color:rgb(0, 81, 255);
+
+@mixin style_prompt($color){
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 25px;
+    color: $color;
+    background-color: lighten($color,30%);
+}
+.happy_hedgehogs_prompt{
+    @include style_prompt($positive-color)
+}
+.sad_hedgehogs_prompt{
+    @include style_prompt($negaitve-color)
+}
+.supportive_hedgehogs_prompt{
+    @include style_prompt(orange)
+}
+
+.centered{
+    margin: auto;
+    width: 75%;
+    text-align: center;
+}
+
+.row {
+    margin-left: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 32%;
+    max-width: 32%;
+    padding: 0 4px;
+    img {
+        border-radius: 15px 50px 30px;
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+      }
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 40%;
+      max-width: 40%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  %button-shared {
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    margin: auto
+  }
+  .button-primary{
+    @extend %button-shared;
+    background-color: $primary-color;
+  }
+  .button-negative {
+    @extend %button-shared;
+    background-color: $negaitve-color;
+  }
+  .button-positive {
+    @extend %button-shared;
+    background-color: $positive-color;
+  }
+  
