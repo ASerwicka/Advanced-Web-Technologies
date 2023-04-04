@@ -13,12 +13,12 @@ import java.util.Collection;
 public class AuthorController {
 
     private final IAuthorService authorService;
-
+    @CrossOrigin
     @GetMapping("/get/authors")
     public ResponseEntity<Collection<Author>> getAuthors() {
         return ResponseEntity.ok(authorService.getAuthors());
     }
-
+    @CrossOrigin
     @GetMapping("/get/author/{id}")
     public ResponseEntity<Author> getAuthor(@PathVariable int id) {
         try {
@@ -27,7 +27,7 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @CrossOrigin
     @PostMapping("/post/author")
     public ResponseEntity<?> addAuthor(@RequestBody Author author) {
         try {
@@ -36,7 +36,7 @@ public class AuthorController {
             return ResponseEntity.badRequest().body("Invalid entity");
         }
     }
-
+    @CrossOrigin
     @PatchMapping("/patch/author")
     public ResponseEntity<?> updateAuthor(@RequestBody Author author) {
         try {
@@ -45,7 +45,7 @@ public class AuthorController {
             return ResponseEntity.badRequest().body("Invalid entity");
         }
     }
-
+    @CrossOrigin
     @PatchMapping("/delete/author/{id}")
     public ResponseEntity<?> deleteAuthor(@PathVariable int id) {
         try {

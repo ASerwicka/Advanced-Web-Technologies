@@ -13,17 +13,17 @@ import java.util.Collection;
 public class BookController {
 
     private final IBooksService booksService;
-
+    @CrossOrigin
     @GetMapping("/")
     public String home() {
         return "Home";
     }
-
+    @CrossOrigin
     @GetMapping("/get/books")
     public ResponseEntity<Collection<Book>> getBooks() {
         return ResponseEntity.ok(booksService.getBooks());
     }
-
+    @CrossOrigin
     @GetMapping("/get/book/{id}")
     public ResponseEntity<Book> getBook(@PathVariable int id) {
         try {
@@ -32,7 +32,7 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @CrossOrigin
     @PostMapping("/post/book")
     public ResponseEntity<?> addBook(@RequestBody Book book) {
         try {
@@ -41,7 +41,7 @@ public class BookController {
             return ResponseEntity.badRequest().body("Invalid entity");
         }
     }
-
+    @CrossOrigin
     @PatchMapping("/patch/book")
     public ResponseEntity<?> updateBook(@RequestBody Book book) {
         try {
@@ -52,7 +52,7 @@ public class BookController {
             return ResponseEntity.badRequest().body("Invalid entity");
         }
     }
-
+    @CrossOrigin
     @DeleteMapping("/delete/book/{id}")
     public ResponseEntity<?> deleteBook(@PathVariable int id) {
         try {
