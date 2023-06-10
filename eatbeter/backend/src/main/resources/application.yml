@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        hbm2ddl:
+          export_files: schema.sql
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Iv1.731596c579d3b990
+            clientSecret: 1a16900f622b3b74d6d2e1efa40c53a63ad8705d
+          google:
+            clientId: 700086744673-keplb3hc6ere9uiqddg4aleho4i08g37.apps.googleusercontent.com
+            clientSecret: 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
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eatbetter
+    username: postgres
+    password: postgres
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+
+
