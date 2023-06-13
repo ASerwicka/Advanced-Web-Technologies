@@ -17,6 +17,8 @@ public class LoginController {
 
     @GetMapping("/loginSuccess")
     public ResponseEntity<String> login(Principal principal){
+        userService.checkIfUserExists(principal);
+
         System.out.println(principal.getName());
         return ResponseEntity.ok("Login successful");
     }

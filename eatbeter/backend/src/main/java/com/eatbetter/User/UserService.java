@@ -34,6 +34,24 @@ public class UserService {
         return userRepository.findById(Long.valueOf(id));
     }
 
+
+    public void checkIfUserExists(Principal principal){
+        User user = findByPrincipal(principal).orElse(null);
+        if (principal instanceof OAuth2AuthenticationToken){
+            if (Objects.isNull(user)){
+                saveOauth2User((OAuth2AuthenticationToken) principal);
+            }
+        }
+    }
+
+    public void saveOauth2User(OAuth2AuthenticationToken principal){
+
+        User user = new User();
+        user.setOauth2Id(principal.getPrincipal().getAttribute("id").toString());
+        user.setName(principal.getPrincipal().getAttribute("login").toString());
+        userRepository.save(user);
+    }
+
     public void save(User user) {
         userRepository.findByName(user.getName()).ifPresentOrElse(
                 user1 -> {
